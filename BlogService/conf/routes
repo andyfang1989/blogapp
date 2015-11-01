@@ -1,0 +1,18 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+#services
+POST    /apps/signup                controllers.Application.signup()
+POST    /apps/login                 controllers.Application.login()
+POST    /apps/post                  controllers.Post.addPost()
+POST    /apps/comment               controllers.Post.addComment
+
+GET     /apps/logout                controllers.Application.logout()
+GET     /apps/isauthenticated       controllers.Application.isAuthenticated()
+GET     /apps/getPosts              controllers.Application.getPosts()
+GET     /apps/post/:id              controllers.Application.getPost(id: Long)
+GET     /apps/userposts             controllers.Post.getUserPosts()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

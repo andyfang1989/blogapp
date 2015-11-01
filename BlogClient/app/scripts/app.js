@@ -1,0 +1,51 @@
+'use strict';
+
+/**
+ * @ngdoc overview
+ * @name blogClientApp
+ * @description
+ * # blogClientApp
+ *
+ * Main module of the application.
+ */
+angular
+  .module('blogClientApp', [
+    'ngAnimate',
+    'ngCookies',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
+    'ui.bootstrap'
+  ])
+  .config(function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
+      .when('/signup', {
+        templateUrl: 'views/signup.html',
+        controller: 'SignupCtrl'
+      })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
+     .when('/dashboard', {
+        templateUrl: 'views/dashboard.html',
+        controller: 'DashboardCtrl'
+      })
+      .when('/addpost', {
+        templateUrl: 'views/addpost.html',
+        controller: 'AddpostCtrl'
+      })    
+      .when('/viewpost/:postId', {
+        templateUrl: 'views/viewpost.html',
+        controller: 'ViewpostCtrl'
+      })  
+      .otherwise({
+        redirectTo: '/'
+      });
+  });
